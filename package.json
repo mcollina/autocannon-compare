@@ -1,6 +1,6 @@
 {
   "name": "autocannon-compare",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Compare two autocannon runs Edit",
   "main": "./compare.js",
   "bin": {
