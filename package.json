@@ -1,0 +1,40 @@
+{
+  "name": "autocannon-compare",
+  "version": "0.0.1",
+  "description": "Compare two autocannon runs Edit",
+  "main": "compare.js",
+  "bin": {
+    "autocannon-compare": "./compare"
+  },
+  "scripts": {
+    "test": "standard | snazzy && tap --cov test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcollina/autocannon-compare.git"
+  },
+  "keywords": [
+    "autocannon",
+    "http",
+    "benchmark",
+    "soak",
+    "load",
+    "compare",
+    "ttest"
+  ],
+  "author": "Matteo Collina <hello@matteocollina.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcollina/autocannon-compare/issues"
+  },
+  "homepage": "https://github.com/mcollina/autocannon-compare#readme",
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "snazzy": "^6.0.0",
+    "standard": "^8.6.0",
+    "tap": "^10.1.1"
+  },
+  "dependencies": {
+    "ttest": "^1.1.0"
+  }
+}
