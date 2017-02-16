@@ -1,10 +1,10 @@
 {
   "name": "autocannon-compare",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compare two autocannon runs Edit",
-  "main": "compare.js",
+  "main": "./compare.js",
   "bin": {
-    "autocannon-compare": "./compare"
+    "autocannon-compare": "./compare.js"
   },
   "scripts": {
     "test": "standard | snazzy && tap --cov test.js"
