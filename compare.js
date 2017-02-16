@@ -10,17 +10,15 @@ function compare (a, b) {
 
   const res = {
     requests: calculate(a.requests, b.requests, aRequests, bRequests),
-    throughput: calculate(a.throughput, b.throughput, aRequests, bRequests),
+    throughput: calculate(a.throughput, b.throughput, a.duration, b.duration),
     latency: calculate(a.latency, b.latency, aRequests, bRequests)
   }
 
-  const aWins =
-    res.requests.difference.indexOf('-') < 0 &&
-    res.requests.significant.indexOf('*') >= 0
+  const diff = parseFloat(res.requests.difference)
 
-  const bWins =
-    res.requests.difference.indexOf('-') >= 0 &&
-    res.requests.significant.indexOf('*') >= 0
+  const aWins = !res.requests.valid && diff > 5
+
+  const bWins = !res.requests.valid && diff < -5
 
   res.aWins = aWins
   res.bWins = bWins
@@ -30,11 +28,15 @@ function compare (a, b) {
 }
 
 function calculate (a, b, samplesA, samplesB) {
-  const stat = ttest(asData(a, samplesA), asData(b, samplesB))
+  const stat = ttest(asData(a, samplesA), asData(b, samplesB), {
+    varEqual: false,
+    alpha: 0.10
+  })
 
   const difference = (Math.round((a.mean - b.mean) / b.mean * 100 * 100, 2) / 100) + '%'
 
   return {
+    valid: stat.valid(),
     difference,
     pValue: stat.pValue(),
     significant: asSignificant(stat.pValue())
