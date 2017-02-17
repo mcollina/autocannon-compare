@@ -14,15 +14,15 @@ function compare (a, b) {
     latency: calculate(a.latency, b.latency, aRequests, bRequests)
   }
 
-  const diff = parseFloat(res.requests.difference)
+  const diff = parseFloat(res.throughput.difference)
 
-  const aWins = !res.requests.valid && diff > 5
+  const aWins = !res.throughput.valid && diff > 5
 
-  const bWins = !res.requests.valid && diff < -5
+  const bWins = !res.throughput.valid && diff < -5
 
   res.aWins = aWins
   res.bWins = bWins
-  res.equal = !aWins && !bWins
+  res.equal = res.throughput.valid
 
   return res
 }
