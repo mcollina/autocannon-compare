@@ -22,7 +22,7 @@ function compare (a, b) {
 
   res.aWins = aWins
   res.bWins = bWins
-  res.equal = res.throughput.valid
+  res.equal = !aWins && !bWins
 
   return res
 }
