@@ -1,13 +1,13 @@
 {
   "name": "autocannon-compare",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Compare two autocannon runs Edit",
   "main": "./compare.js",
   "bin": {
     "autocannon-compare": "./compare.js"
   },
   "scripts": {
-    "test": "standard | snazzy && tap --cov test.js"
+    "test": "standard | snazzy && tap test.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "pre-commit": "^1.2.2",
     "snazzy": "^6.0.0",
     "standard": "^8.6.0",
-    "tap": "^10.1.1"
+    "tap": "^10.7.2"
   },
   "dependencies": {
     "ttest": "^1.1.0"
